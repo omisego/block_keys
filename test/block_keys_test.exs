@@ -5,5 +5,9 @@ defmodule BlockKeysTest do
     test "it generates the mnemonic and root private key" do
       assert %{mnemonic: mnemonic, root_key: root_key} = BlockKeys.generate()
     end
+
+    test "it generate the mnemonic using the configured path" do
+      assert %{mnemonic: mnemonic, root_key: root_key} = BlockKeys.generate()
+    end
   end
 end

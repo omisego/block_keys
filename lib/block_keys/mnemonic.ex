@@ -127,7 +127,13 @@ defmodule BlockKeys.Mnemonic do
   defp element_at_index(index, words), do: Kernel.elem(words, index)
 
   defp words do
-    "./assets/english.txt"
+    words_file = Application.get_env(:block_keys, :words_list)
+
+    unless words_file do
+      raise "Words file not set in Application env (config :block_keys, words_list: \"./my_words.txt\")"
+    end
+
+    words_file
     |> File.stream!()
     |> Stream.map(&String.trim/1)
     |> Enum.to_list()

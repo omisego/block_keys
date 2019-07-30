@@ -24,3 +24,5 @@ bitcoin_addresses-*.tar
 
 *.swp
 *.swo
+
+.elixir_ls
